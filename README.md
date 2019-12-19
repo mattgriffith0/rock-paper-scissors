@@ -1,0 +1,1 @@
+This is a basic Rock Paper Scissors game created with JS for The Odin Project's Web Dev 101 course.
