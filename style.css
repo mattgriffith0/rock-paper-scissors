@@ -1,0 +1,94 @@
+h1 {
+    text-align: center;
+    font-size: 64px;
+    font-family: 'Courier New', Courier, monospace;
+    text-decoration: underline;
+}
+
+h2 {
+    font-size: 40px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    border: black solid 2px;
+    padding: 20px;
+    margin: 6px;
+}
+
+#play-area {
+    width: 50%;
+    float: left;
+    text-align: center;
+}
+
+#score-area {
+    width: 50%;
+    float: right;
+    padding-top: 30px;
+    text-align: center;
+}
+
+table#table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+td.win {
+    background-color: goldenrod;
+}
+
+#resultscontainer {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+table, th, td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 6px;
+}
+
+button:disabled {
+    opacity: 0.4;
+}
+
+button:active:enabled {
+    transform: translateY(2px);
+}
+
+#rock {
+    background-color: green;
+}
+
+#rock:hover:enabled {
+    background-color: darkgreen;
+}
+
+#paper {
+    background-color: blue;
+}
+
+#paper:hover:enabled {
+    background-color: darkblue;
+}
+
+#scissors {
+    background-color: red;
+}
+
+#scissors:hover:enabled {
+    background-color: darkred;
+}
+
+#restart {
+    background-color: grey;
+    margin-top: 40px;
+}
+
+#restart:hover:enabled {
+    background-color: black;
+}
