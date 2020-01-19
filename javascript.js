@@ -2,8 +2,7 @@ console.log("Hello, World!")
 
 let compScore = 0;
 let playerScore = 0;
-let playerSelection;
-let computerSelection;
+let round = 0;
 
 const rock = document.querySelector("#rock");
 rock.addEventListener('click', chooseRock);
@@ -40,16 +39,20 @@ function computerChoice() {
 }
 
 function insertRound() {
-    var scoretable = document.getElementById("table");
-    var row = scoretable.insertRow(-1);
-    var cell = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
-    cell.innerHTML = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
-    cell2.innerHTML = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
-    cell3.innerHTML = playerScore;
-    cell4.innerHTML = compScore;
+  var scoretable = document.getElementById("table");
+  var row = scoretable.insertRow(-1);
+  var cell = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var cell4 = row.insertCell(3);
+  var cell5 = row.insertCell(4);
+  var cell6 = row.insertCell(5);
+  cell.innerHTML = round;
+  cell2.innerHTML = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+  cell3.innerHTML = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
+  cell4.innerHTML = "Tie";
+  cell5.innerHTML = playerScore;
+  cell6.innerHTML = compScore;
 }
 
 function insertRoundWin() {
@@ -59,52 +62,73 @@ function insertRoundWin() {
     var cell2 = row.insertCell(1);
     var cell3 = row.insertCell(2);
     var cell4 = row.insertCell(3);
-    cell3.setAttribute('class', 'win');
-    cell.innerHTML = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
-    cell2.innerHTML = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
-    cell3.innerHTML = playerScore;
-    cell4.innerHTML = compScore;
+    var cell5 = row.insertCell(4);
+    var cell6 = row.insertCell(5);
+    cell.innerHTML = round;
+    cell2.innerHTML = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+    cell3.innerHTML = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
+    cell4.innerHTML = winner;
+    cell5.innerHTML = playerScore;
+    cell6.innerHTML = compScore;
+    cell5.setAttribute('class', 'win');
 }
 
 function insertRoundLose() {
-    var scoretable = document.getElementById("table");
-    var row = scoretable.insertRow(-1);
-    var cell = row.insertCell(0);
-    var cell2 = row.insertCell(1);
-    var cell3 = row.insertCell(2);
-    var cell4 = row.insertCell(3);
-    cell4.setAttribute('class', 'win');
-    cell.innerHTML = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
-    cell2.innerHTML = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
-    cell3.innerHTML = playerScore;
-    cell4.innerHTML = compScore;
+  var scoretable = document.getElementById("table");
+  var row = scoretable.insertRow(-1);
+  var cell = row.insertCell(0);
+  var cell2 = row.insertCell(1);
+  var cell3 = row.insertCell(2);
+  var cell4 = row.insertCell(3);
+  var cell5 = row.insertCell(4);
+  var cell6 = row.insertCell(5);
+  cell.innerHTML = round;
+  cell2.innerHTML = playerSelection.charAt(0).toUpperCase() + playerSelection.slice(1);
+  cell3.innerHTML = computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1);
+  cell4.innerHTML = winner;
+  cell5.innerHTML = playerScore;
+  cell6.innerHTML = compScore;
+  cell6.setAttribute('class', 'win');
 }
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection === computerSelection) {
+    round++;
     insertRound();
     return "It's a Tie!"
   } else if (computerSelection === "rock" && playerSelection === "paper" ) {
+    winner = "Player";
+    round++;
     playerScore ++;
     insertRoundWin();
     return `You win - paper beats rock! The score is now Player: ${playerScore} Computer: ${compScore}`;
   } else if (computerSelection === "rock" && playerSelection === "scissors" ) {
+    winner = "Computer";
+    round++;
     compScore ++;
     insertRoundLose();
     return `You lose - rock beats scissors! The score is now Player: ${playerScore} Computer: ${compScore}`;
   } else if (computerSelection === "paper" && playerSelection === "rock" ) {
+    winner = "Computer";
+    round++;
     compScore ++;
     insertRoundLose();
     return `You lose - paper beats rock! The score is now Player: ${playerScore} Computer: ${compScore}`;
   } else if (computerSelection === "paper" && playerSelection === "scissors" ) {
+    winner = "Player"
+    round++;
     playerScore ++;
     insertRoundWin();
     return `You win - scissors beats paper! The score is now Player: ${playerScore} Computer: ${compScore}`;
   } else if (computerSelection === "scissors" && playerSelection === "paper" ) {
+    winner = "Computer";
+    round++;
     compScore ++;
     insertRoundLose();
     return `You lose - scissors beats paper! The score is now Player: ${playerScore} Computer: ${compScore}`;
   } else if (computerSelection === "scissors" && playerSelection === "rock" ) {
+    winner = "Player";
+    round++;
     playerScore ++;
     insertRoundWin();
     return `You win - rock beats scissors! The score is now Player: ${playerScore} Computer: ${compScore}`;

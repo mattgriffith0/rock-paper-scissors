@@ -18,6 +18,12 @@ button {
     border: black solid 2px;
     padding: 20px;
     margin: 6px;
+    background-color: grey;
+    cursor: pointer;
+}
+
+button:hover:enabled {
+    background-color: slategrey;
 }
 
 #play-area {
@@ -54,41 +60,9 @@ table, th, td {
 
 button:disabled {
     opacity: 0.4;
+    cursor: not-allowed;
 }
 
 button:active:enabled {
     transform: translateY(2px);
-}
-
-#rock {
-    background-color: green;
-}
-
-#rock:hover:enabled {
-    background-color: darkgreen;
-}
-
-#paper {
-    background-color: blue;
-}
-
-#paper:hover:enabled {
-    background-color: darkblue;
-}
-
-#scissors {
-    background-color: red;
-}
-
-#scissors:hover:enabled {
-    background-color: darkred;
-}
-
-#restart {
-    background-color: grey;
-    margin-top: 40px;
-}
-
-#restart:hover:enabled {
-    background-color: black;
 }
