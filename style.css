@@ -1,13 +1,18 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+}
+
 h1 {
     text-align: center;
     font-size: 64px;
-    font-family: 'Courier New', Courier, monospace;
     text-decoration: underline;
 }
 
 h2 {
     font-size: 40px;
-    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    margin: 0;
+
 }
 
 button {
@@ -20,23 +25,32 @@ button {
     margin: 6px;
     background-color: grey;
     cursor: pointer;
+    width: 150px;
 }
 
 button:hover:enabled {
     background-color: slategrey;
 }
 
-#play-area {
-    width: 50%;
-    float: left;
-    text-align: center;
+.content {
+    display: flex;
+    flex-direction: row;
+    padding: 32px;
 }
 
-#score-area {
+.play-area {
     width: 50%;
-    float: right;
-    padding-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.choices-output {
     text-align: center;
+
+}
+
+.score-area {
+    width: 50%;
 }
 
 table#table {
@@ -49,7 +63,8 @@ td.win {
 }
 
 #resultscontainer {
-    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
 }
 
 table, th, td {
