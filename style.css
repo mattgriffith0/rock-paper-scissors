@@ -81,3 +81,27 @@ button:disabled {
 button:active:enabled {
     transform: translateY(2px);
 }
+
+.restartbtncontainer {
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+}
+
+.restartbtnwin {
+    background-color: lightgreen;
+    width: 250px;
+}
+
+.restartbtnwin:hover:enabled {
+    background-color: green;
+}
+
+.restartbtnlose {
+    background-color: lightcoral;
+    width: 250px;
+}
+
+.restartbtnlose:hover:enabled {
+    background-color: indianred;
+}

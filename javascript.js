@@ -15,9 +15,17 @@ scissors.addEventListener('click', choice);
 
 function restartButton() {
     const restart = document.createElement('button');
+    const restartbuttoncontainer = document.createElement('div');
+    const gamediv = document.getElementById("game");
     restart.textContent = "New Game";
-    restart.setAttribute('id', 'restart');
-    resultscontainer.appendChild(restart);
+    restartbuttoncontainer.setAttribute('class', 'restartbtncontainer');
+    if (playerScore === 5) {
+      restart.setAttribute('class', 'restartbtnwin');
+    } else {
+      restart.setAttribute('class', 'restartbtnlose')
+    }
+    gamediv.appendChild(restartbuttoncontainer);
+    restartbuttoncontainer.appendChild(restart);
     restart.addEventListener('click', startOver);
 }
 
@@ -86,8 +94,9 @@ function finished() {
     document.getElementById("rock").disabled = true;
     document.getElementById("paper").disabled = true;
     document.getElementById("scissors").disabled = true;
-    const result = document.createElement('div');
-    resultscontainer.appendChild(result);
+    const result = document.createElement('p');
+    const score = document.getElementById("score");
+    score.appendChild(result);
     result.textContent = win;
     restartButton();
   } else if (compScore === 5) {
